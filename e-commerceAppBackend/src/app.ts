@@ -10,9 +10,13 @@ import bodyParser = require('body-parser');
 import { StatusError } from './types';
 
 const app = express();
+const allowedOrigins = ['http://localhost:4200', 'https://happyshopping-8fc5b.web.app', 'https://happyshopping-8fc5b.firebaseapp.com'];
 
 app.use((req: Request, res: Response, next: NextFunction) => {
-  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');
+  const origin = req.headers.origin!;
+  if (allowedOrigins.includes(origin)) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+  }
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   if (req.method == 'OPTIONS') {
@@ -41,7 +45,6 @@ app.use((error: StatusError, req: Request, res: Response, next: NextFunction) =>
   const status = error.status || 500;
   return res.status(status).json({
     message: error.message,
-    error: error.toString(),
   });
 });
 

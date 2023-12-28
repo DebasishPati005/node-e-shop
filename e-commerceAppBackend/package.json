@@ -4,8 +4,9 @@
   "description": "Making existing firebase backend to node",
   "main": "app.js",
   "scripts": {
-    "start": "node  -r dotenv/config --watch \"*.ts\" --exec \"ts-node\" index.ts",
-    "build": "tsc -p tsconfig.prod.json",
+    "start:dev": "nodemon  -r dotenv/config  --exec \"ts-node\" index.ts",
+    "start": "node  -r dotenv/config dist/index.js",
+    "build": "npx tsc",
     "lint": "eslint src/**/*.ts --fix",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -23,8 +24,7 @@
     "mongoose": "^8.0.3",
     "morgan": "^1.10.0",
     "nodemailer": "^6.9.7",
-    "pdfkit": "^0.14.0",
-    "ts-node": "^10.9.2"
+    "pdfkit": "^0.14.0"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.6",
@@ -42,6 +42,7 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.0.1",
     "prettier": "^3.1.1",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "ts-node": "^10.9.2"
   }
 }

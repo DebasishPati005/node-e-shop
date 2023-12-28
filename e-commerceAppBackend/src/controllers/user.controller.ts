@@ -13,7 +13,7 @@ import ExtendedRequest, {
 import { Order } from '../models/order.model';
 import fs = require('fs');
 import generateInvoicePdf from '../../utils/generateInvoicePdf';
-import { MailService } from '../../utils/maingService';
+import { MailService } from '../../utils/mailingService';
 import { orderPlacedTemplate } from '../../utils/emailTemplates';
 import { Report } from '../models/report.model';
 
@@ -38,8 +38,7 @@ export const getUserData = async (req: Request, res: Response, next: NextFunctio
 
     const filteredUserData = { ...userData.toObject(), productsInCart: filteredCartProducts };
     return res.json(filteredUserData);
-  } catch (error) {
-    console.error(error);
+  } catch {
     const err = new StatusError(ERROR_MESSAGE.default);
     err.status = 500;
     next(err);

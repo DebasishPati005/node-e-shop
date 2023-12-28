@@ -6,7 +6,7 @@ import { CONSTANTS, ERROR_MESSAGE, RESPONSE_MESSAGE } from '../common/constants'
 import bcrypt from 'bcryptjs';
 import jsonWebToken from 'jsonwebtoken';
 import { BlacklistJWT } from '../models/blacklistJWT.model';
-import { MailService } from '../../utils/maingService';
+import { MailService } from '../../utils/mailingService';
 import { getSignUpTemplate, resetPasswordTemplate } from '../../utils/emailTemplates';
 import crypto = require('crypto');
 

@@ -33,11 +33,6 @@ export class MailService {
 
   public async sentMail(mailConfig: MailConfig): Promise<MailResponse> {
     try {
-      console.log({
-        from: process.env.GOOGLE_SES_USER,
-        ...mailConfig,
-      });
-
       await this.transporter.sendMail({
         from: process.env.GOOGLE_SES_USER,
         ...mailConfig,
@@ -47,9 +42,7 @@ export class MailService {
         message: RESPONSE_MESSAGE.mailSendSuccessMessage,
         sentMail: true,
       };
-    } catch (error) {
-      console.log(error);
-
+    } catch {
       return { message: RESPONSE_MESSAGE.mailSendSuccessMessage, sentMail: true };
     }
   }
