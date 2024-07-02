@@ -16,7 +16,7 @@ function resetPasswordTemplate(token) {
             <div style=" background-color: #ffffcc;  border-radius: 10px;  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  padding: 20px;
             margin: 20px auto;  max-width: 400px;">
               <h3 style="color: #0073e6;">Click the below link to reset your password.</h3>
-              <a style="color: #000;" href ="http://localhost:4200/auth/reset-password/${token}">Click here</a>
+              <a style="color: #000;" href ="https://happyshopping-8fc5b.web.app/auth/reset-password/${token}">Click here</a>
 
               <i style="color: red;">This link is valid for 10mins.</i>
             </div>
@@ -37,7 +37,7 @@ function orderPlacedTemplate(orderId) {
             <div style=" background-color: #ffffcc;  border-radius: 10px;  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  padding: 20px;
             margin: 20px auto;  max-width: 400px;">
               <h3 style="color: #0073e6;">Click the following link to get invoice.</h3>
-              <a style="color: #000;" href ="http://localhost:8080/user/download-order-invoice/${orderId}">Click me here</a>
+              <a style="color: #000;" href ="https://happyshopping-8fc5b.web.app/user/download-order-invoice/${orderId}">Click me here</a>
             </div>
         `;
 }
